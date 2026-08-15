@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="./OT.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#ffffff;
@@ -27,9 +27,11 @@
     --footer-text:#f8fafc;
     --footer-muted:#8b95a5;
     --footer-border:rgba(255,255,255,0.09);
-    --font-display:'Outfit',sans-serif;
-    --font-body:'Inter',sans-serif;
-    --font-mono:'JetBrains Mono',monospace;
+    --btn-primary-bg:#0a0e14;
+    --btn-primary-text:#ffffff;
+    --btn-primary-hover:#232833;
+    --font-display:'Poppins',sans-serif;
+    --font-body:'Poppins',sans-serif;
     --radius:10px;
     color-scheme:light;
   }
@@ -43,6 +45,9 @@
     --text-muted:#9aa4b5;
     --text-faint:#6b7484;
     --header-bg:rgba(11,15,23,0.82);
+    --btn-primary-bg:#f2f5f9;
+    --btn-primary-text:#0b0f17;
+    --btn-primary-hover:#ffffff;
     color-scheme:dark;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -71,11 +76,14 @@
   .theme-toggle .icon-sun{display:none;}
   html[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
   html[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+  .nav-linkedin{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:var(--bg-soft);border:1px solid var(--border);color:var(--text);transition:border-color .15s ease,background .15s ease,color .15s ease;}
+  .nav-linkedin:hover{border-color:#0a66c2;color:#0a66c2;}
+  .nav-linkedin svg{width:17px;height:17px;}
   .nav-cta{font-family:var(--font-body);font-size:14.5px;font-weight:600;padding:10px 20px;border-radius:8px;background:var(--accent-blue);color:#fff;white-space:nowrap;transition:background .15s ease;}
   .nav-cta:hover{background:#1d4ed8;}
   .nav-toggle{display:none;background:none;border:none;color:var(--text);cursor:pointer;}
   @media (max-width:900px){.nav-links{display:none;}.nav-toggle{display:flex;}}
-  @media (max-width:480px){.nav-cta{padding:9px 14px;font-size:13.5px;}.logo-mark{height:21px;}}
+  @media (max-width:480px){.nav-cta{padding:9px 14px;font-size:13.5px;}.logo-mark{height:21px;}.nav-linkedin,.theme-toggle{width:34px;height:34px;}}
 
   /* ---------- HERO ---------- */
   .hero{padding:96px 0 64px;text-align:center;}
@@ -84,12 +92,13 @@
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-blue);}
   h1{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5.4vw,60px);line-height:1.08;letter-spacing:-1.4px;max-width:820px;margin:0 auto 22px;}
   h1 .accent{color:var(--accent-blue);}
+  .quote-attr{font-size:13.5px;color:var(--text-faint);margin:-8px auto 22px;letter-spacing:.2px;}
   .hero p.sub{font-size:17.5px;color:var(--text-muted);max-width:580px;margin:0 auto 36px;}
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
   .btn{font-family:var(--font-body);font-weight:600;font-size:15px;padding:14px 26px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:background .18s ease,border-color .18s ease,transform .12s ease;display:inline-flex;align-items:center;gap:8px;}
   .btn:active{transform:scale(0.98);}
-  .btn-primary{background:var(--text);color:#fff;}
-  .btn-primary:hover{background:#232833;}
+  .btn-primary{background:var(--btn-primary-bg);color:var(--btn-primary-text);}
+  .btn-primary:hover{background:var(--btn-primary-hover);}
   .btn-outline{background:var(--card-bg);color:var(--text);border-color:var(--border-strong);}
   .btn-outline:hover{border-color:var(--text);}
 
@@ -99,8 +108,8 @@
   .term-bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#12161f;border-bottom:1px solid rgba(255,255,255,0.06);}
   .term-bar span{width:10px;height:10px;border-radius:50%;display:block;}
   .term-bar .r{background:#ff5f57;} .term-bar .y{background:#febc2e;} .term-bar .g{background:#28c840;}
-  .term-bar .title{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:#6b7280;}
-  .term-body{padding:22px 24px;font-family:var(--font-mono);font-size:13.5px;line-height:1.9;color:#c8d0dc;text-align:left;}
+  .term-bar .title{margin-left:auto;font-family:var(--font-body);font-size:11px;color:#6b7280;}
+  .term-body{padding:22px 24px;font-family:var(--font-body);font-size:13.5px;line-height:1.9;color:#c8d0dc;text-align:left;}
   .term-body .p{color:var(--accent-cyan);} .term-body .k{color:#8b95a5;} .term-body .v{color:#f8fafc;}
   .term-body .cur{display:inline-block;width:7px;height:15px;background:var(--accent-blue);margin-left:2px;vertical-align:middle;animation:blink 1.1s steps(1) infinite;}
   @keyframes blink{50%{opacity:0;}}
@@ -121,7 +130,7 @@
   .about-photo span{font-family:var(--font-display);font-size:64px;font-weight:700;color:#fff;letter-spacing:-2px;}
   .about-copy p{color:var(--text-muted);font-size:16px;margin-bottom:16px;}
   .about-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-  .about-facts .tag{font-family:var(--font-mono);font-size:12px;color:var(--text);border:1px solid var(--border);padding:6px 12px;border-radius:6px;background:var(--bg-soft);}
+  .about-facts .tag{font-family:var(--font-body);font-size:12px;color:var(--text);border:1px solid var(--border);padding:6px 12px;border-radius:6px;background:var(--bg-soft);}
   @media (max-width:860px){.about-grid{grid-template-columns:1fr;}.about-photo{max-width:220px;margin:0 auto;}}
 
   /* ---------- SKILLS ---------- */
@@ -132,29 +141,40 @@
   .card h3{font-family:var(--font-display);font-size:19px;font-weight:600;margin-bottom:10px;letter-spacing:-0.2px;}
   .card p{color:var(--text-muted);font-size:14.5px;margin-bottom:18px;}
   .tag-row{display:flex;flex-wrap:wrap;gap:7px;}
-  .tag{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);border:1px solid var(--border);padding:4px 9px;border-radius:6px;}
+  .tag{font-family:var(--font-body);font-size:11px;color:var(--text-muted);border:1px solid var(--border);padding:4px 9px;border-radius:6px;}
   @media (max-width:900px){.service-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:640px){.service-grid{grid-template-columns:1fr;}}
+  .skills-subhead{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.3px;color:var(--text-muted);margin-bottom:18px;text-transform:uppercase;}
+  .skills-subhead-soft{margin-top:44px;}
 
   /* ---------- PROJECTS ---------- */
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .work-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card-bg);transition:background .2s ease,box-shadow .2s ease,border-color .2s ease;}
   .work-card:hover{box-shadow:0 6px 20px rgba(10,14,20,0.05);border-color:var(--border-strong);}
   .work-thumb{height:150px;background:var(--bg-soft);position:relative;display:flex;align-items:center;justify-content:center;}
-  .work-thumb span{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);letter-spacing:1px;}
+  .work-thumb span{font-family:var(--font-body);font-size:11px;color:var(--text-faint);letter-spacing:1px;}
   .work-body{padding:22px 22px 24px;}
-  .work-body .cat{font-family:var(--font-mono);font-size:11px;color:var(--accent-blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+  .work-body .cat{font-family:var(--font-body);font-size:11px;color:var(--accent-blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
   .work-body h4{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:6px;}
   .work-body p{font-size:13.5px;color:var(--text-muted);margin-bottom:14px;}
   .work-body .link{font-size:13px;font-weight:600;color:var(--accent-blue);}
   @media (max-width:900px){.work-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:640px){.work-grid{grid-template-columns:1fr;}}
+  .work-thumb{gap:8px;}
+  .status-badge{position:absolute;top:10px;right:10px;font-family:var(--font-body);font-size:10.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;padding:4px 9px;border-radius:20px;border:1px solid transparent;}
+  .status-completed{background:rgba(34,160,90,0.12);color:#1a8f4d;border-color:rgba(34,160,90,0.25);}
+  .status-inprogress{background:rgba(210,150,20,0.12);color:#b8791a;border-color:rgba(210,150,20,0.25);}
+  .status-notstarted{background:rgba(140,140,150,0.12);color:var(--text-muted);border-color:var(--border);}
+  html[data-theme="dark"] .status-completed{background:rgba(34,197,94,0.15);color:#4ade80;border-color:rgba(34,197,94,0.3);}
+  html[data-theme="dark"] .status-inprogress{background:rgba(245,158,11,0.15);color:#fbbf24;border-color:rgba(245,158,11,0.3);}
+  .work-skills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .work-skills .tag{font-size:10.5px;padding:3px 8px;}
 
   /* ---------- TIMELINE (education + experience) ---------- */
   .timeline{max-width:760px;}
   .t-item{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:28px 0;border-top:1px solid var(--border);}
   .t-item:last-child{padding-bottom:0;}
-  .t-when{font-family:var(--font-mono);font-size:12.5px;color:var(--text-faint);padding-top:2px;}
+  .t-when{font-family:var(--font-body);font-size:12.5px;color:var(--text-faint);padding-top:2px;}
   .t-item h4{font-family:var(--font-display);font-size:18px;font-weight:600;margin-bottom:4px;}
   .t-item .org{font-size:14px;color:var(--accent-blue);font-weight:600;margin-bottom:10px;}
   .t-item p{font-size:14.5px;color:var(--text-muted);}
@@ -171,7 +191,7 @@
   .contact-links .ic{width:36px;height:36px;border-radius:8px;background:var(--bg-soft);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent-blue);}
   form.contact-form{display:flex;flex-direction:column;gap:14px;}
   .contact-form input,.contact-form textarea{font-family:var(--font-body);font-size:14.5px;padding:13px 15px;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-soft);color:var(--text);outline:none;transition:border-color .15s ease;}
-  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent-blue);background:#fff;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent-blue);background:var(--card-bg);}
   .contact-form textarea{resize:vertical;min-height:120px;}
   .contact-form button{align-self:flex-start;}
   @media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
@@ -183,12 +203,12 @@
   .footer-brand .logo-mark{height:22px;color:var(--footer-text);}
   .footer-name{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:-0.2px;}
   .footer-about p{font-size:14px;line-height:1.7;color:var(--footer-muted);max-width:290px;margin-bottom:22px;}
-  .footer-status{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11.5px;color:var(--footer-muted);border:1px solid var(--footer-border);padding:6px 12px;border-radius:20px;margin-bottom:22px;}
+  .footer-status{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:11.5px;color:var(--footer-muted);border:1px solid var(--footer-border);padding:6px 12px;border-radius:20px;margin-bottom:22px;}
   .footer-status .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-green);flex-shrink:0;}
   .footer-socials{display:flex;gap:10px;}
   .footer-socials a{width:34px;height:34px;border-radius:50%;border:1px solid var(--footer-border);display:flex;align-items:center;justify-content:center;color:var(--footer-muted);transition:border-color .15s ease,color .15s ease;}
   .footer-socials a:hover{border-color:#fff;color:#fff;}
-  .footer-col h5{font-family:var(--font-mono);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--footer-muted);margin-bottom:18px;}
+  .footer-col h5{font-family:var(--font-body);font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--footer-muted);margin-bottom:18px;}
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
   .footer-col a{font-size:14px;color:var(--footer-text);opacity:0.82;transition:opacity .15s ease;}
   .footer-col a:hover{opacity:1;}
@@ -205,9 +225,24 @@
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.in{opacity:1;transform:none;}
+
+  /* small admin-link chip, unobtrusive */
+  .admin-chip{position:fixed;bottom:18px;right:18px;z-index:200;font-family:var(--font-body);font-size:11px;color:var(--text-muted);background:var(--card-bg);border:1px solid var(--border);padding:8px 12px;border-radius:20px;opacity:.55;transition:opacity .15s ease;}
+  .admin-chip:hover{opacity:1;}
 </style>
 </head>
 <body>
+
+<script>
+  /* Set theme before paint to avoid a flash of the wrong theme. */
+  (function(){
+    try{
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    }catch(e){}
+  })();
+</script>
 
 <header>
   <nav class="wrap">
@@ -227,6 +262,9 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
+      <a class="nav-linkedin" id="navLinkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+      </a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" type="button">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
@@ -241,9 +279,10 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">Computer Science Student</div>
-    <h1>The only way to do great work<br><span class="accent">is to love what you do</span></h1>
-    <p class="sub">Building high-performance systems with strong computer science fundamentals</p>
+    <div class="eyebrow" id="heroEyebrow">Computer Science Student</div>
+    <h1><span id="heroLine1">The only way to do great work</span><br><span class="accent" id="heroLine2">is to love what you do</span></h1>
+    <p class="quote-attr" id="heroQuoteAttr">— Steve Jobs</p>
+    <p class="sub" id="heroSub">Building high-performance systems with strong computer science fundamentals</p>
     <div class="cta-row">
       <a href="#projects" class="btn btn-primary">View my projects</a>
       <a href="#contact" class="btn btn-outline">Get in touch</a>
@@ -251,14 +290,14 @@
 
     <div class="hero-art">
       <div class="term">
-        <div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><div class="title">oussema_tarhouni@portfolio: ~</div></div>
+        <div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><div class="title" id="termWindowTitle">oussema_tarhouni@portfolio: ~</div></div>
         <div class="term-body">
           <div><span class="p">$</span> whoami</div>
-          <div><span class="k">name:</span>   <span class="v">Oussema Tarhouni</span></div>
-          <div><span class="k">role:</span>   <span class="v">Computer Science Student</span></div>
-          <div><span class="k">focus:</span>  <span class="v">Programming Languages, Operating Systems</span></div>
-          <div><span class="k">stack:</span>  <span class="v">C · C++ · Python · Git · GitHub · Html · CSS · Angular · Php · MySQL</span></div>
-          <div><span class="k">status:</span> <span class="v">Open to internships</span><span class="cur"></span><a href="#contact" style="margin-left: 2px;">Contact</a></div>
+          <div><span class="k">name:</span>   <span class="v" id="tName">Oussama Tarhouni</span></div>
+          <div><span class="k">role:</span>   <span class="v" id="tRole">Computer Science Student</span></div>
+          <div><span class="k">focus:</span>  <span class="v" id="tFocus">Programming Languages, Operating Systems</span></div>
+          <div><span class="k">stack:</span>  <span class="v" id="tStack">C · C++ · Python · Git · GitHub · Html · CSS · Angular · Php · MySQL</span></div>
+          <div><span class="k">status:</span> <span class="v" id="tStatus">Open to internships</span><span class="cur"></span><a href="#contact" style="margin-left: 2px;">Contact</a></div>
         </div>
       </div>
     </div>
@@ -268,23 +307,12 @@
 <section id="about" class="soft">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-photo reveal"></div>
+      <div class="about-photo reveal" id="aboutPhoto"></div>
       <div class="about-copy reveal">
         <div class="eyebrow">About</div>
-        <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.6px;margin-bottom:16px;">Learning by doing. Building by design.</h2>
-        <p>I’m a Computer Science student interested in systems programming and how software works under the hood—from memory management to OS fundamentals.
-
-I learn best by doing. Whether it’s building small tools in C, writing automation scripts, or managing custom Linux environments, I prefer hands-on execution over pure theory. I’m currently looking for an internship where I can apply my skills to real problems.</p>
-        <p>Most of what I know, I've learned by building: small tools in C, scripts that automate the boring parts of my coursework, and a Linux setup I've broken and rebuilt more times than I can count. I'm currently looking for an internship where I can apply that curiosity to real problems.</p>
-        <div class="about-facts">
-          <span class="tag">C / C++</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Git</span>
-          <span class="tag">Angular</span>
-          <span class="tag">Python</span>
-          <span class="tag">Php</span>
-          <span class="tag">MySQL</span>
-        </div>
+        <h2 id="aboutHeading" style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-0.6px;margin-bottom:16px;">Learning by doing. Building by design.</h2>
+        <p id="aboutParagraph"></p>
+        <div class="about-facts" id="aboutTags"></div>
       </div>
     </div>
   </div>
@@ -297,26 +325,10 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
       <h2>What I work with.</h2>
       <p>A mix of low-level fundamentals from coursework and the tools I reach for on my own projects.</p>
     </div>
-    <div class="service-grid">
-      <div class="card reveal">
-        <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-        <h3>Systems &amp; low-level</h3>
-        <p>Memory management, processes, and the fundamentals of how an OS runs your code — mostly explored through C.</p>
-        <div class="tag-row"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Linux</span><span class="tag">Makefiles</span></div>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div>
-        <h3>Software fundamentals</h3>
-        <p>Data structures, algorithms, and problem solving — the coursework core, kept sharp with practice.</p>
-        <div class="tag-row"><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">Python</span></div>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Tools &amp; workflow</h3>
-        <p>Comfortable living in the terminal — version control, shell scripting, and a Linux environment I maintain myself.</p>
-        <div class="tag-row"><span class="tag">Git</span><span class="tag">Bash</span><span class="tag">Vim</span><span class="tag">Docker</span></div>
-      </div>
-    </div>
+    <h3 class="skills-subhead">Hard skills</h3>
+    <div class="service-grid" id="hardSkillsGrid"></div>
+    <h3 class="skills-subhead skills-subhead-soft">Soft skills</h3>
+    <div class="service-grid" id="softSkillsGrid"></div>
   </div>
 </section>
 
@@ -325,37 +337,9 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
     <div class="section-head reveal">
       <div class="eyebrow">Projects</div>
       <h2>Things I've built.</h2>
-      <p>A few projects from coursework and personal exploration. Replace these with your own.</p>
+      <p>A few projects from coursework and personal exploration.</p>
     </div>
-    <div class="work-grid">
-      <div class="work-card reveal">
-        <div class="work-thumb"><span>PROJECT</span></div>
-        <div class="work-body">
-          <div class="cat">Systems</div>
-          <h4>Custom shell in C</h4>
-          <p>A Unix-like command shell built from scratch, supporting piping, redirection, and job control.</p>
-          <a href="#" class="link">View on GitHub →</a>
-        </div>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-thumb"><span>PROJECT</span></div>
-        <div class="work-body">
-          <div class="cat">Tools</div>
-          <h4>Dotfiles &amp; environment</h4>
-          <p>A version-controlled Linux setup — window manager config, shell aliases, and scripts I use daily.</p>
-          <a href="#" class="link">View on GitHub →</a>
-        </div>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-thumb"><span>PROJECT</span></div>
-        <div class="work-body">
-          <div class="cat">Coursework</div>
-          <h4>Memory allocator</h4>
-          <p>A simplified malloc/free implementation exploring heap management and fragmentation.</p>
-          <a href="#" class="link">View on GitHub →</a>
-        </div>
-      </div>
-    </div>
+    <div class="work-grid" id="projectsGrid"></div>
   </div>
 </section>
 
@@ -365,16 +349,7 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
       <div class="eyebrow">Education</div>
       <h2>Where I've studied.</h2>
     </div>
-    <div class="timeline reveal">
-      <div class="t-item">
-        <div class="t-when">2023 — 2027<br>(expected)</div>
-        <div>
-          <h4>B.Sc. in Computer Science</h4>
-          <div class="org">Your University</div>
-          <p>Relevant coursework: Data Structures &amp; Algorithms, Operating Systems, Computer Architecture, Discrete Mathematics.</p>
-        </div>
-      </div>
-    </div>
+    <div class="timeline reveal" id="educationTimeline"></div>
   </div>
 </section>
 
@@ -383,32 +358,9 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
     <div class="section-head reveal">
       <div class="eyebrow">Experience</div>
       <h2>Where I've worked.</h2>
-      <p>Internships and hands-on experience so far. Swap these for your own history.</p>
+      <p>Internships and hands-on experience so far.</p>
     </div>
-    <div class="timeline reveal">
-      <div class="t-item">
-        <div class="t-when">Summer 2025</div>
-        <div>
-          <h4>Software Engineering Intern</h4>
-          <div class="org">Company Name</div>
-          <ul>
-            <li>Contributed to an internal tool used by the engineering team.</li>
-            <li>Fixed bugs and wrote tests in an existing C++ codebase.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="t-item">
-        <div class="t-when">2024 — Present</div>
-        <div>
-          <h4>Teaching Assistant, Intro to Programming</h4>
-          <div class="org">Your University</div>
-          <ul>
-            <li>Held weekly office hours and lab sessions for first-year students.</li>
-            <li>Graded assignments and helped debug student code.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="timeline reveal" id="experienceTimeline"></div>
   </div>
 </section>
 
@@ -417,12 +369,8 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
     <div class="contact-info reveal">
       <div class="eyebrow">Contact</div>
       <h2>Let's talk.</h2>
-      <p>Open to internships, collaborations, or just talking about systems programming. Reach out however's easiest.</p>
-      <div class="contact-links">
-        <a href="mailto:oussematarhouni9@gmail.com"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>oussematarhouni9@gmail.com</a>
-        <a href="#"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.35-3.87-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg></span>github.com/yourhandle</a>
-        <a href="https://www.linkedin.com/in/oussema-tarhouni/" target="_blank"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></span>linkedin.com/in/oussema-tarhouni</a>
-      </div>
+      <p id="contactIntro">Open to internships, collaborations, or just talking about systems programming. Reach out however's easiest.</p>
+      <div class="contact-links" id="contactLinks"></div>
     </div>
     <form class="contact-form reveal" onsubmit="return false;">
       <input type="text" placeholder="Your name" required>
@@ -444,12 +392,12 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
         </svg>
         <span class="footer-name">Oussama Tarhouni</span>
       </div>
-      <p>Computer science student focused on systems programming — C, C++, and the Linux terminal, exploring what happens below the abstraction layer.</p>
-      <div class="footer-status"><span class="dot"></span>Open to internships</div>
+      <p id="footerBlurb">Computer science student focused on systems programming — C, C++, and the Linux terminal, exploring what happens below the abstraction layer.</p>
+      <div class="footer-status"><span class="dot"></span><span id="footerStatus">Open to internships</span></div>
       <div class="footer-socials">
         <a href="#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.35-3.87-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg></a>
         <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
-        <a href="mailto:oussematarhouni9@gmail.com" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        <a href="#" id="footerEmailLink" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
     </div>
     <div class="footer-col">
@@ -465,9 +413,9 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
     <div class="footer-col">
       <h5>Get in touch</h5>
       <ul>
-        <li><a href="mailto:oussematarhouni9@gmail.com">oussematarhouni9@gmail.com</a></li>
+        <li><a href="#" id="footerEmailLink2">oussematarhouni9@gmail.com</a></li>
         <li><a href="#contact">Contact form</a></li>
-        <li class="muted">Monastir, Tunisia</li>
+        <li class="muted" id="footerLocation">Monastir, Tunisia</li>
       </ul>
     </div>
     <div class="footer-col">
@@ -475,41 +423,158 @@ I learn best by doing. Whether it’s building small tools in C, writing automat
       <ul>
         <li class="muted">Computer Science student</li>
         <li class="muted">Systems &amp; low-level focus</li>
-        <li class="muted">Arabic · English · French</li>
+        <li class="muted" id="footerLanguages">Arabic · English · French</li>
       </ul>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© 2026 Oussama Tarhouni. Built with care.</span>
+    <span>© <span id="footerYear">2026</span> Oussama Tarhouni. Built with care.</span>
     <a href="#top" class="to-top">Back to top ↑</a>
   </div>
 </footer>
 
+<a href="admin.html" class="admin-chip">⚙ Admin</a>
+
+<script src="site-data.js"></script>
 <script>
+  /* ---------- theme toggle ---------- */
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle?.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  /* ---------- mobile nav ---------- */
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
-  toggle?.addEventListener('click', ()=>{
+  toggle?.addEventListener('click', () => {
     const open = links.style.display === 'flex';
     links.style.display = open ? 'none' : 'flex';
-    if(!open){
-      links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 32px;gap:4px;';
+    if (!open) {
+      links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:16px 32px;gap:4px;';
     }
   });
 
-  const revealObserver = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
+  /* ---------- reveal-on-scroll ---------- */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
         entry.target.classList.add('in');
         revealObserver.unobserve(entry.target);
       }
     });
-  },{threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+  }, { threshold: 0.12 });
 
   const header = document.querySelector('header');
-  window.addEventListener('scroll', ()=>{
+  window.addEventListener('scroll', () => {
     header.style.boxShadow = window.scrollY > 4 ? '0 1px 0 rgba(10,14,20,0.04)' : 'none';
   });
+
+  /* ---------- render content from site-data.js (edited via admin.html) ---------- */
+  const ICONS = {
+    chevron: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>',
+    lines: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/></svg>',
+    check: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>'
+  };
+
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s == null ? '' : s;
+    return d.innerHTML;
+  }
+
+  function renderSite(data) {
+    document.getElementById('heroEyebrow').textContent = data.hero.eyebrow;
+    document.getElementById('heroLine1').textContent = data.hero.titleLine1;
+    document.getElementById('heroLine2').textContent = data.hero.titleLine2;
+    document.getElementById('navLinkedin').href = data.contact.linkedinUrl;
+    const attrEl = document.getElementById('heroQuoteAttr');
+    if (data.hero.quoteAttribution) { attrEl.textContent = '— ' + data.hero.quoteAttribution; attrEl.style.display = ''; }
+    else { attrEl.style.display = 'none'; }
+    document.getElementById('heroSub').textContent = data.hero.sub;
+    document.getElementById('termWindowTitle').textContent = data.hero.terminal.name.toLowerCase().replace(/\s+/g, '_') + '@portfolio: ~';
+    document.getElementById('tName').textContent = data.hero.terminal.name;
+    document.getElementById('tRole').textContent = data.hero.terminal.role;
+    document.getElementById('tFocus').textContent = data.hero.terminal.focus;
+    document.getElementById('tStack').textContent = data.hero.terminal.stack;
+    document.getElementById('tStatus').textContent = data.hero.terminal.status;
+
+    document.getElementById('aboutHeading').textContent = data.about.heading;
+    document.getElementById('aboutParagraph').textContent = data.about.paragraph;
+    document.getElementById('aboutTags').innerHTML = data.about.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('');
+    const aboutPhotoEl = document.getElementById('aboutPhoto');
+    if (data.about.photo) {
+      aboutPhotoEl.style.backgroundImage = `url("${data.about.photo}")`;
+      aboutPhotoEl.style.backgroundSize = 'cover';
+      aboutPhotoEl.style.backgroundPosition = 'center';
+    } else {
+      aboutPhotoEl.style.backgroundImage = '';
+    }
+
+    const skillCard = s => `
+      <div class="card reveal in">
+        <div class="card-icon">${ICONS[s.icon] || ICONS.chevron}</div>
+        <h3>${esc(s.title)}</h3>
+        <p>${esc(s.desc)}</p>
+        <div class="tag-row">${s.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      </div>`;
+    document.getElementById('hardSkillsGrid').innerHTML = data.skills.hard.map(skillCard).join('');
+    document.getElementById('softSkillsGrid').innerHTML = data.skills.soft.map(skillCard).join('');
+
+    const statusClass = st => st === 'Completed' ? 'status-completed' : st === 'In Progress' ? 'status-inprogress' : 'status-notstarted';
+    document.getElementById('projectsGrid').innerHTML = data.projects.map(p => `
+      <div class="work-card reveal in">
+        <div class="work-thumb"${p.image ? ` style="background-image:url('${p.image}');background-size:cover;background-position:center;"` : ''}>${p.image ? '' : '<span>PROJECT</span>'}${p.status ? `<span class="status-badge ${statusClass(p.status)}">${esc(p.status)}</span>` : ''}</div>
+        <div class="work-body">
+          <div class="cat">${esc(p.category)}</div>
+          <h4>${esc(p.title)}</h4>
+          <p>${esc(p.desc)}</p>
+          ${p.skills && p.skills.length ? `<div class="work-skills">${p.skills.map(s => `<span class="tag">${esc(s)}</span>`).join('')}</div>` : ''}
+          <a href="${esc(p.link)}" class="link">View on GitHub →</a>
+        </div>
+      </div>`).join('');
+
+    document.getElementById('educationTimeline').innerHTML = data.education.map(e => `
+      <div class="t-item">
+        <div class="t-when">${esc(e.when)}</div>
+        <div>
+          <h4>${esc(e.degree)}</h4>
+          <div class="org">${esc(e.org)}</div>
+          <p>${esc(e.desc)}</p>
+        </div>
+      </div>`).join('');
+
+    document.getElementById('experienceTimeline').innerHTML = data.experience.map(x => `
+      <div class="t-item">
+        <div class="t-when">${esc(x.when)}</div>
+        <div>
+          <h4>${esc(x.title)}</h4>
+          <div class="org">${esc(x.org)}</div>
+          <ul>${x.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+        </div>
+      </div>`).join('');
+
+    document.getElementById('contactIntro').textContent = data.contact.intro;
+    document.getElementById('contactLinks').innerHTML = `
+      <a href="mailto:${esc(data.contact.email)}"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>${esc(data.contact.email)}</a>
+      <a href="${esc(data.contact.githubUrl)}" target="_blank" rel="noopener"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.35-3.87-1.35-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg></span>${esc(data.contact.githubLabel)}</a>
+      <a href="${esc(data.contact.linkedinUrl)}" target="_blank" rel="noopener"><span class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></span>${esc(data.contact.linkedinLabel)}</a>`;
+
+    document.getElementById('footerBlurb').textContent = data.footer.blurb;
+    document.getElementById('footerStatus').textContent = data.footer.status;
+    document.getElementById('footerLocation').textContent = data.footer.location;
+    document.getElementById('footerLanguages').textContent = data.footer.languages;
+    document.getElementById('footerYear').textContent = data.footer.year;
+    document.getElementById('footerEmailLink').href = 'mailto:' + data.contact.email;
+    document.getElementById('footerEmailLink2').href = 'mailto:' + data.contact.email;
+    document.getElementById('footerEmailLink2').textContent = data.contact.email;
+
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => revealObserver.observe(el));
+  }
+
+  renderSite(loadData());
 </script>
 </body>
 </html>
